@@ -118,4 +118,4 @@ fi
 
 
 
-PS1="\[\033[36m\]\u@\h \e[92m\w \e[93m(\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)) \e[37m\$ \[\033[37m"
+PS1="\[\033[36m\]\u@\h \[\e[92m\]\w \[\e[93m\](\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)) \[\e[37m\\]$ \[\e[0m\]"
