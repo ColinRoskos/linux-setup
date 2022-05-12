@@ -117,5 +117,5 @@ if ! shopt -oq posix; then
 fi
 
 
-
-PS1="\[\033[36m\]\u@\h \[\e[92m\]\w \[\e[93m\](\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)) \[\e[37m\\]$ \[\e[0m\]"
+MAXGITCOL="25"
+PS1="\[\033[36m\]\u@\h \[\e[92m\]\w \[\e[93m\](\$(if [ \$(git branch 2>/dev/null | grep '^*' | wc -c) -lt $MAXGITCOL ]; then echo \$(git branch 2>/dev/null | grep '^*' | colrm 1 2); else echo \$(git branch 2>/dev/null | grep '^*' | colrm 1 2 | colrm $MAXGITCOL)...;fi)) \[\e[37m\\]$ \[\e[0m\]"
